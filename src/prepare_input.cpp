@@ -14,9 +14,6 @@
 #include <algorithm>
 
 
-#include <iostream>
-
-
 std::string prepare_input(std::string &input, Case const case_mode,
                      Space const space_mode, size_t const word_size)
 {
