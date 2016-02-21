@@ -20,11 +20,11 @@ std::string prepare_input(std::string &input, Case const case_mode,
     assert(((space_mode == Space::word_size) ? word_size != 0 : true) &&
            "prepare_input: word_size can't be set as zero");
     
-    input = std::regex_replace(input, std::regex("[éêèëÉÈÊË]"s), "E");
-    input = std::regex_replace(input, std::regex("[àâÀÂ]"s),     "A");
-    input = std::regex_replace(input, std::regex("[ûùÛÙ]"s),     "U");
-    input = std::regex_replace(input, std::regex("[çÇ]"s),       "C");
-    input = std::regex_replace(input, std::regex("[œŒ]"s),       "OE");
+    input = std::regex_replace(input, std::regex("[éêèëÉÈÊË]"), "E");
+    input = std::regex_replace(input, std::regex("[àâÀÂ]"),     "A");
+    input = std::regex_replace(input, std::regex("[ûùÛÙ]"),     "U");
+    input = std::regex_replace(input, std::regex("[çÇ]"),       "C");
+    input = std::regex_replace(input, std::regex("[œŒ]"),       "OE");
     input = std::regex_replace(input, std::regex("[^A-Za-z ]"), "");
 
     if (case_mode == Case::upper)
