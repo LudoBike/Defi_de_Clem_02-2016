@@ -1,0 +1,12 @@
+# CMake user files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Build directory
+bin/
+
+# All emacs autosave files
+**/*~
+**/\#*\#
