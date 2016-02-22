@@ -19,14 +19,26 @@ std::string prepare_input(std::string &input, Case const case_mode,
 {
     assert(((space_mode == Space::word_size) ? word_size != 0 : true) &&
            "prepare_input: word_size can't be set as zero");
-    
-    input = std::regex_replace(input, std::regex("[éêèëÉÈÊË]"), "E");
-    input = std::regex_replace(input, std::regex("[àâÀÂ]"),     "A");
-    input = std::regex_replace(input, std::regex("[ûùÛÙ]"),     "U");
-    input = std::regex_replace(input, std::regex("[çÇ]"),       "C");
-    input = std::regex_replace(input, std::regex("[œŒ]"),       "OE");
-    input = std::regex_replace(input, std::regex("[^A-Za-z ]"), "");
 
+    std::array<std::array<std::string, 2>, 6> const toChange = {
+        {
+            {"[éêèëÉÈÊË]", "E"},
+            {"[àâÀÂ]",     "A"},
+            {"[ûùÛÙ]",     "U"},
+            {"[çÇ]",       "C"},
+            {"[œŒ]",       "OE"},
+            {"[^A-Za-z ]", ""}
+        }
+    };
+
+    std::regex rgx;
+    rgx.imbue(std::locale("fr_FR.UTF8"));
+    for (auto const &i: toChange)
+    {
+        rgx = i[0];
+        input = std::regex_replace(input, rgx, i[1]);
+    }
+    
     if (case_mode == Case::upper)
         for (auto &c: input) c = toupper(c);
     else // case_mode == Case::lower
