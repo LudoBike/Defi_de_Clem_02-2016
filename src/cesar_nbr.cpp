@@ -13,7 +13,6 @@
 
 std::string cesar_nbr(std::string const &text, char const difference)
 {
-    assert(difference != 0 && "cesar_nbr: null difference is stupid");
     assert(difference < 26 || difference > -26 && "cesar_nbr: difference out of range");
 
     std::string ret;

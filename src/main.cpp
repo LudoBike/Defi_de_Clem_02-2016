@@ -8,6 +8,8 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <queue>
+#include <utility>
 #include <functions.hpp>
 
 using std::cout;
@@ -29,11 +31,21 @@ int main()
     cout << input << endl;
     #endif
 
-    input = "RENDSACESARCEQUIESTAMOI";
-    input = cesar_nbr(input, 12);
+    input = "SYKMA OTTGB GOZPG SGOYK AJKHU TNKAX GBKIY KYINB XKYOR RKYVK XJGOZ ZUAZK YJKRG SSKLG UTATH KGASG ZOTKR RKYIG YYGOK TZRKA XIUXJ KYKTG RRGOK TZJGT YRGSU TZGMT KKZRN GAZRK RUAVR KYSGT MKGOZ TORKY IGXKY YKYJK RKAXS GZXKT ORGVK AXJAR UAVXO KTTKR KYXKZ KTGOZ IZGOZ VGXGZ ORJKY INBXK YOTJV KTJGT ZKYBU ARGTZ ZUAZV XODRK MXGTJ GOXKZ RGROH KXZ";
 
     cout << input << endl;
-    cout << cesar_nbr(input, -12) << endl;
+    auto difference = get_probable_diff(input);
+    while (not difference.empty())
+    {
+        cout << cesar_nbr(input, difference.top().second) << endl;
+        difference.pop();
         
+        unsigned int is_great{};
+        cout << "Ce texte est-il correct ?\n 1) Oui\n 2) Non\n>> ";
+        cin >> is_great;
+        if (is_great == 1)
+            break;
+    }
+    
     return 0;
 }

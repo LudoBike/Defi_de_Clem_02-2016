@@ -12,11 +12,15 @@
 #include "enum_case.hpp"
 #include "enum_space.hpp"
 #include <string>
+#include <queue>
+#include <utility>
 
 std::string prepare_input(std::string &input, Case const case_mode = Case::upper,
                           Space const space_mode = Space::keep, size_t const word_size = 0);
 
 std::string cesar_nbr(std::string const &text, char const difference);
+
+std::priority_queue<std::pair<unsigned int, char>> get_probable_diff(std::string const &text);
 
 
 #endif // __FUNCTIONS_HPP__
