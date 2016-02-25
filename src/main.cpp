@@ -11,6 +11,7 @@
 #include <queue>
 #include <utility>
 #include <functions.hpp>
+#include <enum_edmode.hpp>
 
 using std::cout;
 using std::cerr;
@@ -31,6 +32,7 @@ int main()
     cout << input << endl;
     #endif
 
+    #ifdef ZERO
     input = "SYKMA OTTGB GOZPG SGOYK AJKHU TNKAX GBKIY KYINB XKYOR RKYVK XJGOZ ZUAZK YJKRG SSKLG UTATH KGASG ZOTKR RKYIG YYGOK TZRKA XIUXJ KYKTG RRGOK TZJGT YRGSU TZGMT KKZRN GAZRK RUAVR KYSGT MKGOZ TORKY IGXKY YKYJK RKAXS GZXKT ORGVK AXJAR UAVXO KTTKR KYXKZ KTGOZ IZGOZ VGXGZ ORJKY INBXK YOTJV KTJGT ZKYBU ARGTZ ZUAZV XODRK MXGTJ GOXKZ RGROH KXZ";
 
     cout << input << endl;
@@ -46,6 +48,16 @@ int main()
         if (is_great == 1)
             break;
     }
+    #endif
+
+    input = "LAREF ORMEO UILAC HIENL ITNON";
+    std::string cipher_alphabet = "GHSUKNMLTCQXVZJIDORYABWPEF";
+    std::string encrypt_input   = simple_subst(input, cipher_alphabet, EDMode::encrypt);
+    std::string decrypt_input   = simple_subst(encrypt_input, cipher_alphabet);
+
+    cout << "Input string : " << input << endl;
+    cout << "Encrypt string : " << encrypt_input << endl;
+    cout << "Decrypt string : " << decrypt_input << endl;
     
     return 0;
 }
