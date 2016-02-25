@@ -5,6 +5,7 @@
 
 */
 
+
 #ifndef __FUNCTIONS_HPP__
 #define __FUNCTIONS_HPP__
 
@@ -29,6 +30,8 @@ std::priority_queue<std::pair<unsigned int, char>>
 std::string simple_subst(std::string const &text,
                          std::string const &cipher_alphabet,
                          EDMode      const mode = EDMode::decrypt);
+
+std::string gen_cipher_alphabet(std::string key);
 
 
 #endif // __FUNCTIONS_HPP__

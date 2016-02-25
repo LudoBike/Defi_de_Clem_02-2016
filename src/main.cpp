@@ -50,6 +50,7 @@ int main()
     }
     #endif
 
+    #ifdef ZERO
     input = "LAREF ORMEO UILAC HIENL ITNON";
     std::string cipher_alphabet = "GHSUKNMLTCQXVZJIDORYABWPEF";
     std::string encrypt_input   = simple_subst(input, cipher_alphabet, EDMode::encrypt);
@@ -58,6 +59,10 @@ int main()
     cout << "Input string : " << input << endl;
     cout << "Encrypt string : " << encrypt_input << endl;
     cout << "Decrypt string : " << decrypt_input << endl;
+    #endif
+
+    std::string key = "DISMOITOUTBILOUTE";
+    cout << gen_cipher_alphabet(key) << endl;
     
     return 0;
 }
